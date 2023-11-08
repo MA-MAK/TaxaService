@@ -1,0 +1,44 @@
+services:
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+
+    ports:
+    - 27018:27017
+    volumes:
+    - mongodb_data_container:/data/db
+
+  BookingService:
+    image: mortenlundmikkelsen/bookingservice:latest
+    environment:
+      rabbitmqHost=dev-rabbit
+      PlanPath=//srv/plans
+   
+    ports:
+      - 5001:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+      - TaxaNet
+
+  PlanService:
+    image: mortenlundmikkelsen/planservice:latest 
+    environment:
+      rabbitmqHost=dev-rabbit
+      PlanPath=//srv/plans
+   
+    ports:
+      - 5002:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+      - TaxaNet
+
+volumes:
+  mongodb_data_container:
+  images_data:
+    external: false

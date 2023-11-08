@@ -1,33 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\git\\sem4\\IT ark & infr\\mod3\\TaxaBooking\\BookingService\\BookingService.csproj": {}
+    "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/BookingService.csproj": {}
   },
   "projects": {
-    "C:\\git\\sem4\\IT ark & infr\\mod3\\TaxaBooking\\BookingService\\BookingService.csproj": {
+    "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/BookingService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\git\\sem4\\IT ark & infr\\mod3\\TaxaBooking\\BookingService\\BookingService.csproj",
+        "projectUniqueName": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/BookingService.csproj",
         "projectName": "BookingService",
-        "projectPath": "C:\\git\\sem4\\IT ark & infr\\mod3\\TaxaBooking\\BookingService\\BookingService.csproj",
-        "packagesPath": "C:\\Users\\asnie\\.nuget\\packages\\",
-        "outputPath": "C:\\git\\sem4\\IT ark & infr\\mod3\\TaxaBooking\\BookingService\\obj\\",
+        "projectPath": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/BookingService.csproj",
+        "packagesPath": "/Users/mortenlund/.nuget/packages/",
+        "outputPath": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\asnie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/mortenlund/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,9 +43,13 @@
               "target": "Package",
               "version": "[7.0.7, )"
             },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.22.0, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
-              "version": "[6.5.0, )"
+              "version": "[6.6.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -78,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9,7 +9,7 @@
       "BookingService/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "7.0.7",
-          "RabbitMQ.Client": "6.5.0",
+          "RabbitMQ.Client": "6.6.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -36,7 +36,7 @@
           }
         }
       },
-      "RabbitMQ.Client/6.5.0": {
+      "RabbitMQ.Client/6.6.0": {
         "dependencies": {
           "System.Memory": "4.5.5",
           "System.Threading.Channels": "7.0.0"
@@ -44,7 +44,7 @@
         "runtime": {
           "lib/netstandard2.0/RabbitMQ.Client.dll": {
             "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.5.0.0"
+            "fileVersion": "6.6.0.0"
           }
         }
       },
@@ -117,12 +117,12 @@
       "path": "microsoft.openapi/1.4.3",
       "hashPath": "microsoft.openapi.1.4.3.nupkg.sha512"
     },
-    "RabbitMQ.Client/6.5.0": {
+    "RabbitMQ.Client/6.6.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9hY5HiWPtCla1/l0WmXmLnqoX7iKE3neBQUWnetIJrRpOvTbO//XQfQDh++xgHCshL40Kv/6bR0HDkmJz46twg==",
-      "path": "rabbitmq.client/6.5.0",
-      "hashPath": "rabbitmq.client.6.5.0.nupkg.sha512"
+      "sha512": "sha512-klht0KBLO7xs/uIn8uejq1VC5wJJ8dHJSm2GmFmJHWQnFzWK5YTNUta6IrnuzitR1T5psxIuqwdQqalbTLPtcA==",
+      "path": "rabbitmq.client/6.6.0",
+      "hashPath": "rabbitmq.client.6.6.0.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",

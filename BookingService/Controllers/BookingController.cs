@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Text;
 using RabbitMQ.Client;
 using BookingService;
+using MongoDB.Driver;
 
 namespace BookingService.Controllers;
 
@@ -12,14 +13,18 @@ namespace BookingService.Controllers;
 public class BookingController : ControllerBase
 {
     private string _planPath = string.Empty;
+    private string _mqHost = string.Empty;
+    private readonly IPersonRepository _personRepo;
     private readonly ILogger<BookingController> _logger;
 
-    public BookingController(ILogger<BookingController> logger, IConfiguration configuration)
+    public BookingController(ILogger<BookingController> logger, IConfiguration configuration, IPersonRepository personrepo)
     {
         _logger = logger;
         _planPath = configuration["PlanPath"] ?? String.Empty;
-        //_planPath = @"C:\git\sem4\IT ark & infr\mod3\TaxaBooking\BookingService\testdata";
+        _mqHost = configuration["rabbitmqHost"] ?? "localhost";
+        _personRepo = personrepo;
     }
+
 
     [HttpGet("GetExample")]
     public IActionResult GetExample()
@@ -53,7 +58,7 @@ public class BookingController : ControllerBase
         {
             //Plan Plan = JsonSerializer.Deserialize<Plan>(jsonString);
 
-            var factory = new ConnectionFactory { HostName = "localhost" };
+            var factory = new ConnectionFactory { HostName = _mqHost };
             using var connection = factory.CreateConnection();
             using var channel = connection.CreateModel();
 

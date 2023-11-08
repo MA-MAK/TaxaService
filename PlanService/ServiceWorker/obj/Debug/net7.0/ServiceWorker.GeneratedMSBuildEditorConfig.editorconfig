@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ServiceWorker
-build_property.ProjectDir = /Users/mortenlund/Desktop/VS Code/4.Semester/PlanService/ServiceWorker/
+build_property.ProjectDir = /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/PlanService/ServiceWorker/
