@@ -30,6 +30,52 @@ services:
 
     networks:
     - TaxaNet
+
+  PlanService:
+    image: mortenlundmikkelsen/planservice:latest 
+    environment:
+      rabbitmqHost: dev-rabbit
+      PlanPath: //srv/plans
+      connectionString: mongodb://admin:1234@mongodb-dev:27017
+      databaseName: TaxaDB
+      collectionName: plans
+   
+    healthcheck:
+      test: curl --fail http://localhost:5002/ || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    restart: on-failure
+
+
+    depends_on:
+      - rabbitmq
+    
+    ports:
+      - 5002:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+      - TaxaNet
+
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: dev-rabbit
+
+    ports:
+      - 5672:5672
+      - 15672:15672
+   
+    networks:
+      - TaxaNet
+    
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+
 volumes:
   mongodb_data_container:
   images_data:

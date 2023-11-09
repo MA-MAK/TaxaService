@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using ServiceWorker.Models;
+
 
 
 namespace ServiceWorker;
@@ -15,18 +17,23 @@ public class Worker : BackgroundService
     private string _mqHost = string.Empty;
     private readonly ILogger<Worker> _logger;
 
-    public Worker(ILogger<Worker> logger, IConfiguration configuration)
+    private readonly PlanRepository _planRepository;
+
+
+    public Worker(ILogger<Worker> logger, IConfiguration configuration, PlanRepository planRepository)
     {
         _logger = logger;
         _planPath = configuration["PlanPath"] ?? String.Empty;
         _mqHost = configuration["rabbitmqHost"] ?? "localhost";
+        _logger.LogInformation($"Connecting to host: {_mqHost}");
+        _planRepository = planRepository ?? throw new ArgumentNullException(nameof(planRepository));
     }
 
 
     // Receiver - Receive message from RabbitMQ
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Connecting to host: {_mqHost}", DateTimeOffset.Now);
+        _logger.LogInformation($"Connecting to host: {_mqHost}", DateTimeOffset.Now);
         var factory = new ConnectionFactory { HostName = _mqHost }; // indsæt miljø varibel // noget alle 
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
@@ -45,8 +52,7 @@ public class Worker : BackgroundService
             var body = ea.Body.ToArray();
             var message = Encoding.UTF8.GetString(body);
             var plan = JsonSerializer.Deserialize<Plan>(message);
-            CreatePlan(plan);
-
+            _planRepository.InsertPlan(plan);
         };
 
 
@@ -65,7 +71,7 @@ public class Worker : BackgroundService
     // Save plan to csv file
     // Sender - Send message to RabbitMQ
     // Sender - Save plan string to CSV file
-    public string CreatePlan(Plan plan)
+   /* public string CreatePlan(Plan plan)
     {
         try
         {
@@ -73,7 +79,6 @@ public class Worker : BackgroundService
             {
                 return "Invalid plan object.";
             }
-
             // Create a unique filename based on a timestamp or GUID
             var uniqueFileName = $"{DateTime.Now:yyyyMMddHHmmssfff}.csv";
             var filePath = Path.Combine(_planPath, uniqueFileName);
@@ -98,5 +103,6 @@ public class Worker : BackgroundService
         }
     }
 
+    */
 
 }
