@@ -1,0 +1,26 @@
+export connectionString=mongodb://admin:1234@localhost:27018
+export databaseName=TaxaDB
+export collectionName=users
+
+mongodb://admin:1234@localhost:27018
+
+
+
+
+  PlanService:
+    image: mortenlundmikkelsen/planservice:latest 
+    environment:
+      rabbitmqHost=dev-rabbit
+      PlanPath=//srv/plans
+   
+    ports:
+      - 5002:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+      - TaxaNet
+
+
+
+

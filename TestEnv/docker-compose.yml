@@ -1,6 +1,7 @@
 services:
   mongodb:
     image: mongo:latest
+    container_name: mongodb-dev
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: 1234
@@ -10,35 +11,30 @@ services:
     volumes:
     - mongodb_data_container:/data/db
 
+    networks:
+    - TaxaNet
+
   BookingService:
     image: mortenlundmikkelsen/bookingservice:latest
     environment:
-      rabbitmqHost=dev-rabbit
-      PlanPath=//srv/plans
+      - rabbitmqHost=dev-rabbit
+      - PlanPath=//srv/plans
+      - connectionString=mongodb://admin:1234@mongodb-dev:27017
+      - databaseName=TaxaDB
+      - collectionName=users
    
     ports:
-      - 5001:80
+    - 5001:80
     volumes:
     - mongodb_data_container:/data/db
 
     networks:
-      - TaxaNet
-
-  PlanService:
-    image: mortenlundmikkelsen/planservice:latest 
-    environment:
-      rabbitmqHost=dev-rabbit
-      PlanPath=//srv/plans
-   
-    ports:
-      - 5002:80
-    volumes:
-    - mongodb_data_container:/data/db
-
-    networks:
-      - TaxaNet
-
+    - TaxaNet
 volumes:
   mongodb_data_container:
   images_data:
     external: false
+
+networks:
+  TaxaNet:
+    driver: bridge

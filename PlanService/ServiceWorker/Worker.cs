@@ -3,6 +3,8 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 
 namespace ServiceWorker;

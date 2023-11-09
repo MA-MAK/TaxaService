@@ -5,6 +5,7 @@ using System.Text;
 using RabbitMQ.Client;
 using BookingService;
 using MongoDB.Driver;
+using MongoDB.Bson;
 
 namespace BookingService.Controllers;
 
@@ -14,15 +15,15 @@ public class BookingController : ControllerBase
 {
     private string _planPath = string.Empty;
     private string _mqHost = string.Empty;
-    private readonly IPersonRepository _personRepo;
+    private readonly UserRepository _userRepo;
     private readonly ILogger<BookingController> _logger;
 
-    public BookingController(ILogger<BookingController> logger, IConfiguration configuration, IPersonRepository personrepo)
+    public BookingController(ILogger<BookingController> logger, IConfiguration configuration, UserRepository userrepo)
     {
         _logger = logger;
         _planPath = configuration["PlanPath"] ?? String.Empty;
         _mqHost = configuration["rabbitmqHost"] ?? "localhost";
-        _personRepo = personrepo;
+        _userRepo = userrepo;
     }
 
 

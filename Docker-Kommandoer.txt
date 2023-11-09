@@ -1,4 +1,48 @@
-							Modul 6 - Docker
+	
+
+
+************************** How to Containerize services **************************
+
+Taxa selskab
+
+- Bygger container image 
+docker build -t planservice_image  -f Dockerfile .
+docker build -t bookingservice_image  -f Dockerfile .
+
+- Opretter nyt tag (kopi) m. Kontonavn er version
+
+docker tag planservice_image mortenlundmikkelsen/planservice
+docker tag bookingservice_image mortenlundmikkelsen/bookingservice
+
+- Logger ind
+
+docker login
+
+- Pusher image til repo’et
+docker push mortenlundmikkelsen/planservice
+
+docker push mortenlundmikkelsen/bookingservice
+
+
+- Opretter lokal container af image
+
+docker run -d -p 5001:80 --name planservice_container mortenlundmikkelsen/planservice
+
+
+-  Opretter lokale container og forbinder til volume
+
+docker run -d --name dev-rabbit --hostname rabbitmq-dev -p 15672:15672 -p 5672:5672 --network=TaxaNet rabbitmq:management 
+
+docker run -d -p 5002:80 -v TaxaPlans:/srv/plans --env rabbitmqHost=”dev-rabbit” --env PlanPath=“//srv/plans” --name planservice_container mortenlundmikkelsen/planservice:latest --network=TaxaNet
+
+docker run -d -p 5001:80 -v TaxaPlans:/srv/plans --env rabbitmqHost=” dev-rabbit” --env PlanPath=“//srv/plans” --name bookingservice_container mortenlundmikkelsen/bookingservice:latest --network=TaxaNet
+
+
+						
+							
+					
+							
+	**************************	Modul 6 - Docker **************************
 
 Opgave M6.01
 
@@ -60,41 +104,6 @@ docker run -d -p 5001:80 -v TaxaPlans:/srv/plans --env PlanPath ="//srv/plans”
 
 
 
-
-Containerize services
-
-Taxa selskab
-
-- Bygger container image **
-docker build -t planservice_image  -f Dockerfile .
-docker build -t bookingservice_image  -f Dockerfile .
-
-- Opretter nyt tag (kopi) m. Kontonavn er version
-
-docker tag planservice_image mortenlundmikkelsen/planservice
-docker tag bookingservice_image mortenlundmikkelsen/bookingservice
-
-- Logger ind
-
-docker login
-
-- Pusher image til repo’et
-docker push mortenlundmikkelsen/planservice
-
-Docker pushmortenlundmikkelsen/bookingservice
-
-
-- Opretter lokal container af image
-
-docker run -d -p 5001:80 --name planservice_container mortenlundmikkelsen/planservice
-
-
--  Opretter lokale container og forbinder til volume
-docker run -d -p 5002:80 -v TaxaPlans:/srv/plans --env rabbitmqHost=”dev-rabbit” --env PlanPath=“//srv/plans” --name planservice_container mortenlundmikkelsen/planservice:latest --network=TaxaNet
-
-docker run -d -p 5001:80 -v TaxaPlans:/srv/plans --env rabbitmqHost=” dev-rabbit” --env PlanPath=“//srv/plans” --name bookingservice_container mortenlundmikkelsen/bookingservice:latest --network=TaxaNet
-
-docker run -d --name dev-rabbit --hostname rabbitmq-dev -p 15672:15672 -p 5672:5672 --network=TaxaNet rabbitmq:management 
 
 
 
