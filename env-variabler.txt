@@ -1,6 +1,8 @@
 export connectionString=mongodb://admin:1234@localhost:27018
 export databaseName=TaxaDB
 export collectionName=users
+export collectionName=plans
+export collectionName=vehicles
 
 mongodb://admin:1234@localhost:27018
 

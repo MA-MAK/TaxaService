@@ -1,0 +1,7 @@
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.csproj.AssemblyReference.cache
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.AssemblyInfoInputs.cache
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.AssemblyInfo.cs
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.csproj.CoreCompileInputs.cache
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.MvcApplicationPartsAssemblyInfo.cs
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/VehicleService/obj/Debug/net7.0/VehicleService.MvcApplicationPartsAssemblyInfo.cache
