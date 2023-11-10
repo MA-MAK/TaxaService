@@ -1,0 +1,9 @@
+
+{
+    "Brand":"Toyota",
+    "Model":"Corolla",
+    "RegistrationNumber":"ABC123",
+    "Kilometers": 123456,
+    "ServiceHistory": [ ],
+    "ImageHistory": [ ]
+}

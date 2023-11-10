@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 
 [Route("[controller]")]
 [ApiController]
-public class VehiclesController : ControllerBase
+public class VehicleController : ControllerBase
 {
     private readonly VehicleRepository _vehicleRepository;
 
-    public VehiclesController(VehicleRepository vehicleRepository)
+     private readonly ILogger<VehicleController> _logger;
+
+    public VehicleController(VehicleRepository vehicleRepository, ILogger<VehicleController> logger)
     {
         _vehicleRepository = vehicleRepository;
+          _logger = logger;
     }
 
     [HttpGet]
@@ -22,7 +25,7 @@ public class VehiclesController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Vehicle>> GetVehicleById(int id)
+    public async Task<ActionResult<Vehicle>> GetVehicleById(string id)
     {
         var vehicle = await _vehicleRepository.GetVehicleById(id);
 
@@ -38,18 +41,19 @@ public class VehiclesController : ControllerBase
     public async Task<ActionResult> CreateVehicle([FromBody] Vehicle vehicle)
     {
         await _vehicleRepository.InsertVehicle(vehicle);
+        _logger.LogInformation("posting..");
         return CreatedAtAction(nameof(GetVehicleById), new { id = vehicle.Id }, vehicle);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateVehicle(int id, [FromBody] Vehicle updatedVehicle)
+    public async Task<ActionResult> UpdateVehicle(string id, [FromBody] Vehicle updatedVehicle)
     {
         await _vehicleRepository.UpdateVehicle(id, updatedVehicle);
         return NoContent();
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteVehicle(int id)
+    public async Task<ActionResult> DeleteVehicle(string id)
     {
         await _vehicleRepository.DeleteVehicle(id);
         return NoContent();
