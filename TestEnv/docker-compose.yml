@@ -38,7 +38,8 @@ services:
       PlanPath: //srv/plans
       connectionString: mongodb://admin:1234@mongodb-dev:27017
       databaseName: TaxaDB
-      collectionName: plans
+      planCollectionName: plans
+      maintenanceCollectionName: maintenanceVisits
    
     healthcheck:
       test: curl --fail http://localhost:5002/ || exit 1
@@ -58,6 +59,23 @@ services:
 
     networks:
       - TaxaNet
+
+
+  MaintenanceService:
+    image: mortenlundmikkelsen/maintenanceService:latest
+    environment:
+      - rabbitmqHost=dev-rabbit
+      - connectionString=mongodb://admin:1234@mongodb-dev:27017
+      - databaseName=TaxaDB
+      - collectionName=maintenanceVisits
+   
+    ports:
+    - 5003:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+    - TaxaNet
 
 
   rabbitmq:

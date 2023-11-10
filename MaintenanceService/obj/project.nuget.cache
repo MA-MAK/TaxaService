@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7Br+6sr9eRyNp8KzyxJo6IBYqa5c0zGk2vQEyYHkboytJA6Y1r+qpmZZahIwsNAe5H1gUJP5In3/rhe3J/1Fxg==",
+  "dgSpecHash": "TSXCY8JReCAa1FX1mGNGSTqxpW+XLqrTtAXtMU4J5jhD8zPEtgqYmSMGVosnZMoMIi9HBJsrL92RmCq4QlHxdQ==",
   "success": true,
   "projectFilePath": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/MaintenanceService/MaintenanceService.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,8 @@
     "/Users/mortenlund/.nuget/packages/mongodb.driver/2.22.0/mongodb.driver.2.22.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/mongodb.driver.core/2.22.0/mongodb.driver.core.2.22.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/mongodb.libmongocrypt/1.8.0/mongodb.libmongocrypt.1.8.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/rabbitmq.client/6.6.0/rabbitmq.client.6.6.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/sharpcompress/0.30.1/sharpcompress.0.30.1.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/snappier/1.0.0/snappier.1.0.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
@@ -28,6 +30,7 @@
     "/Users/mortenlund/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/zstdsharp.port/0.6.2/zstdsharp.port.0.6.2.nupkg.sha512"
   ],
   "logs": []

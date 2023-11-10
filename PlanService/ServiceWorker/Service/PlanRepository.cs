@@ -11,6 +11,7 @@ namespace ServiceWorker
     public class PlanRepository
     {
         private readonly IMongoCollection<Plan> _planCollection;
+         private readonly IMongoCollection<MaintenanceVisit> _maintenanceCollection;
         private readonly IMongoClient _client;
 
         private readonly IMongoDatabase _database;
@@ -20,7 +21,8 @@ namespace ServiceWorker
         {
             _client = new MongoClient(configuration["connectionString"] ?? "mongodb://localhost:27018");
             _database = _client.GetDatabase(configuration["databaseName"] ?? String.Empty);
-            _planCollection = _database.GetCollection<Plan>(configuration["collectionName"] ?? String.Empty);
+            _planCollection = _database.GetCollection<Plan>(configuration["planCollectionName"] ?? String.Empty);
+            _maintenanceCollection = _database.GetCollection<MaintenanceVisit>(configuration["maintenanceCollectionName"] ?? String.Empty);
         }
 
         public async Task<List<Plan>> GetAllPlans()
@@ -38,6 +40,11 @@ namespace ServiceWorker
         public async Task InsertPlan(Plan plan)
         {
             await _planCollection.InsertOneAsync(plan);
+        }
+
+         public async Task InsertMaintenanceVisit(MaintenanceVisit maintenanceVisit)
+        {
+            await _maintenanceCollection.InsertOneAsync(maintenanceVisit);
         }
 
 

@@ -14,7 +14,7 @@ public class VehicleController : ControllerBase
     public VehicleController(VehicleRepository vehicleRepository, ILogger<VehicleController> logger)
     {
         _vehicleRepository = vehicleRepository;
-          _logger = logger;
+        _logger = logger;
     }
 
     [HttpGet]
