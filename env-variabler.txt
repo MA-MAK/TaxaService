@@ -5,9 +5,15 @@ export planCollectionName=plans
 export maintenanceCollectionName=maintenanceVisits
 export rabbitmqHost=dev-rabbit
 
+export Issuer=username
+export Secret=lticrhn5vd1ejf2l4e7x
+
+
 export rabbitmqHost=dev-rabbit
 
 export collectionName=vehicles
+
+
 
 
 mongodb://admin:1234@localhost:27018

@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "dgSpecHash": "uxcYmT9biAT+MvLJcYUPBEs9f7Rm0SfEN/pYnit1U/5D0pYHhE+1xMvjfdPc1hSNYRJMln+T2n2nGX1/sgs2KQ==",
+  "success": true,
+  "projectFilePath": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/AuthService.csproj",
+  "expectedPackageFiles": [
+    "/Users/mortenlund/.nuget/packages/jwt/10.1.1/jwt.10.1.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.13/microsoft.aspnetcore.authentication.jwtbearer.7.0.13.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.aspnetcore.openapi/7.0.10/microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.identitymodel.jsonwebtokens/6.15.1/microsoft.identitymodel.jsonwebtokens.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.identitymodel.logging/6.15.1/microsoft.identitymodel.logging.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.identitymodel.protocols/6.15.1/microsoft.identitymodel.protocols.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/6.15.1/microsoft.identitymodel.protocols.openidconnect.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.identitymodel.tokens/6.15.1/microsoft.identitymodel.tokens.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/newtonsoft.json/13.0.2/newtonsoft.json.13.0.2.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.identitymodel.tokens.jwt/6.15.1/system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.text.json/6.0.7/system.text.json.6.0.7.nupkg.sha512"
+  ],
+  "logs": []
+}
