@@ -14,13 +14,17 @@ namespace ServiceWorker
          private readonly IMongoCollection<MaintenanceVisit> _maintenanceCollection;
         private readonly IMongoClient _client;
 
+        private readonly ILogger<PlanRepository> _logger;
+
         private readonly IMongoDatabase _database;
 
 
-        public PlanRepository(IConfiguration configuration)
+        public PlanRepository(IConfiguration configuration, ILogger<PlanRepository> logger)
         {
+            _logger = logger;
             _client = new MongoClient(configuration["connectionString"] ?? "mongodb://localhost:27018");
             _database = _client.GetDatabase(configuration["databaseName"] ?? String.Empty);
+            _logger.LogInformation("Database Name: " + configuration["databaseName"]);
             _planCollection = _database.GetCollection<Plan>(configuration["planCollectionName"] ?? String.Empty);
             _maintenanceCollection = _database.GetCollection<MaintenanceVisit>(configuration["maintenanceCollectionName"] ?? String.Empty);
         }

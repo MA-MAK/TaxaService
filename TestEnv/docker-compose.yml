@@ -53,6 +53,7 @@ services:
 
     depends_on:
       - rabbitmq
+      - mongodb
     
     ports:
       - 5002:80
@@ -63,21 +64,38 @@ services:
       - TaxaNet
 
 
-  # MaintenanceService:
-  #  image: mortenlundmikkelsen/maintenanceservice:latest
-   # environment:
-   #   - rabbitmqHost=dev-rabbit
-   #   - connectionString=mongodb://admin:1234@mongodb-dev:27017
-   #   - databaseName=TaxaDB
-   #   - collectionName=maintenanceVisits
+  MaintenanceService:
+    image: mortenlundmikkelsen/maintenanceservice:latest
+    environment:
+    - rabbitmqHost=dev-rabbit
+    - connectionString=mongodb://admin:1234@mongodb-dev:27017
+    - databaseName=TaxaDB
+    - collectionName=maintenanceVisits
    
-   # ports:
-   # - 5003:80
-   # volumes:
-   # - mongodb_data_container:/data/db
+    ports:
+    - 5003:80
+    volumes:
+    - mongodb_data_container:/data/db
 
-   # networks:
-   # - TaxaNet
+    networks:
+    - TaxaNet
+
+
+  VehicleService:
+    image: mortenlundmikkelsen/vehicleservice:latest
+    environment:
+    - rabbitmqHost=dev-rabbit
+    - connectionString=mongodb://admin:1234@mongodb-dev:27017
+    - databaseName=TaxaDB
+    - collectionName=vehicles
+   
+    ports:
+    - 5005:80
+    volumes:
+    - mongodb_data_container:/data/db
+
+    networks:
+    - TaxaNet
 
 
   AuthService:
