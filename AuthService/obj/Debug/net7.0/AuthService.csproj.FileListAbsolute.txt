@@ -40,3 +40,4 @@
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/obj/Debug/net7.0/AuthService.pdb
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/obj/Debug/net7.0/AuthService.genruntimeconfig.cache
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/obj/Debug/net7.0/ref/AuthService.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/bin/Debug/net7.0/VaultSharp.dll

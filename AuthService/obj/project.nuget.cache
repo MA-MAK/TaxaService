@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "uxcYmT9biAT+MvLJcYUPBEs9f7Rm0SfEN/pYnit1U/5D0pYHhE+1xMvjfdPc1hSNYRJMln+T2n2nGX1/sgs2KQ==",
+  "dgSpecHash": "GLtGYRrgv6xUbJaahkSw+mSz+o7DBspU8izcGVY7jxjs0D8WC81PCD/kZS795Vx2wXuQQCpD5pRzT1KcqK6Y8A==",
   "success": true,
   "projectFilePath": "/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/AuthService/AuthService.csproj",
   "expectedPackageFiles": [
@@ -21,10 +21,10 @@
     "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/system.identitymodel.tokens.jwt/6.15.1/system.identitymodel.tokens.jwt.6.15.1.nupkg.sha512",
-    "/Users/mortenlund/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/mortenlund/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "/Users/mortenlund/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
-    "/Users/mortenlund/.nuget/packages/system.text.json/6.0.7/system.text.json.6.0.7.nupkg.sha512"
+    "/Users/mortenlund/.nuget/packages/system.text.encodings.web/7.0.0/system.text.encodings.web.7.0.0.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/system.text.json/7.0.2/system.text.json.7.0.2.nupkg.sha512",
+    "/Users/mortenlund/.nuget/packages/vaultsharp/1.13.0.1/vaultsharp.1.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -23,7 +23,7 @@ services:
       - databaseName=TaxaDB
       - collectionName=users
       - Issuer=authservice
-      - Secret=lticrhn5vd1ejf2l4e7x
+      # - Secret=lticrhn5vd1ejf2l4e7x
    
     ports:
     - 5001:80
@@ -47,7 +47,7 @@ services:
       test: curl --fail http://localhost:5002/ || exit 1
       interval: 10s
       timeout: 10s
-      retries: 3
+      retries: 5
     restart: on-failure
 
 
@@ -86,8 +86,22 @@ services:
 
     environment:
       - Issuer=authservice
-      - Secret=lticrhn5vd1ejf2l4e7x
+      - vault=https://taxavault:8201
+      # - Secret=lticrhn5vd1ejf2l4e7x
    
+
+    healthcheck:
+      test: curl --fail http://localhost:5004/ || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    restart: on-failure
+
+
+    depends_on:
+      - vault_dev
+      - vault_init
+
     ports:
     - 5004:80
     
@@ -109,6 +123,46 @@ services:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
 
+  vault_dev:
+    image: hashicorp/vault:latest
+    container_name: taxavault
+    hostname: taxavault
+    restart: on-failure:10
+    ports:
+      - "8201:8201"
+    environment:
+      VAULT_ADDR: 'https://0.0.0.0:8201'
+      VAULT_LOCAL_CONFIG:
+        '{"listener": [{"tcp":{"address": "0.0.0.0:8201",
+        "tls_disable": "0", "tls_cert_file":"/data/cert.pem",
+        "tls_key_file":"/data/key.pem"}}],
+        "default_lease_ttl": "168h", "max_lease_ttl": "720h"},
+        "ui": true}'
+      VAULT_DEV_ROOT_TOKEN_ID: '00000000-0000-0000-0000-000000000000'
+      VAULT_TOKEN: '00000000-0000-0000-0000-000000000000'
+    cap_add:
+      - IPC_LOCK
+    volumes:
+      - ./vault-volume:/data
+    healthcheck:
+      retries: 5
+    command: server -dev -dev-root-token-id="00000000-0000-0000-0000-000000000000"
+
+    networks:
+      - TaxaNet
+
+  vault_init:
+    image: hashicorp/vault:latest
+    command: sh "/app/vault_init.sh"
+    depends_on:
+      - vault_dev
+    healthcheck:
+      retries: 5
+    volumes:
+      - ./vault-init/vault_init.sh:/app/vault_init.sh
+
+    networks:
+      - TaxaNet
 
 volumes:
   mongodb_data_container:

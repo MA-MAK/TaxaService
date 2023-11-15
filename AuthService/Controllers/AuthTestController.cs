@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using VaultSharp;
+using VaultSharp.V1.AuthMethods.Token;
+using VaultSharp.V1.AuthMethods;
+using VaultSharp.V1.Commons;
 
 [ApiController]
 [Route("[controller]")]

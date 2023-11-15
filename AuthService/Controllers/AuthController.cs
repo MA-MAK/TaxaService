@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using VaultSharp;
+using VaultSharp.V1.AuthMethods.Token;
+using VaultSharp.V1.AuthMethods;
+using VaultSharp.V1.Commons;
 
 [ApiController]
 [Route("[controller]")]
@@ -24,10 +28,36 @@ public class AuthController : ControllerBase
     }
 
 
-    private string GenerateJwtToken(string username)
+    private async Task<string> GenerateJwtToken(string username)
     {
-        var securityKey =
-            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Secret"]));
+        // Vault
+        var EndPoint = Environment.GetEnvironmentVariable("vault") ?? "https://localhost:8201/";
+        var httpClientHandler = new HttpClientHandler();
+        httpClientHandler.ServerCertificateCustomValidationCallback =
+            (message, cert, chain, sslPolicyErrors) => { return true; };
+
+        // Initialize one of the several auth methods.
+        IAuthMethodInfo authMethod =
+            new TokenAuthMethodInfo("00000000-0000-0000-0000-000000000000");
+        // Initialize settings. You can also set proxies, custom delegates etc. here.
+        var vaultClientSettings = new VaultClientSettings(EndPoint, authMethod)
+        {
+            Namespace = "",
+            MyHttpClientProviderFunc = handler
+                => new HttpClient(httpClientHandler)
+                {
+                    BaseAddress = new Uri(EndPoint)
+                }
+        };
+        IVaultClient vaultClient = new VaultClient(vaultClientSettings);
+
+        // Use client to read a key-value secret.
+        Secret<SecretData> kv2Secret = await vaultClient.V1.Secrets.KeyValue.V2
+             .ReadSecretAsync(path: "taxaSecrets", mountPoint: "secret");
+        string mySecret = kv2Secret.Data.Data["Secret"].ToString();
+        
+       var securityKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(mySecret));
         var credentials =
             new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 

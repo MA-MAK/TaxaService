@@ -5,7 +5,7 @@ export planCollectionName=plans
 export maintenanceCollectionName=maintenanceVisits
 export rabbitmqHost=dev-rabbit
 
-export Issuer=username
+export Issuer=authservice
 export Secret=lticrhn5vd1ejf2l4e7x
 
 

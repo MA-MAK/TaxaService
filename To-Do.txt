@@ -1,0 +1,9 @@
+
+** Indsætte authorization på alle services (se jwt.txt)
+
+** Installere nuget jwt på alle services
+
+** Oprette nye images (kommandoer er klar)
+
+** Tilføj secret og issuer under environment i docker-compose.yml på alle services
+
