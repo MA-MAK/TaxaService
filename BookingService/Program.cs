@@ -1,5 +1,8 @@
+using System.Text;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +15,22 @@ builder.Services.AddSwaggerGen();
 // builder.Services.AddScoped<IPersonRepository, MongoDBRepository>();
 builder.Services.AddSingleton<UserRepository>();
 
+string mySecret = Environment.GetEnvironmentVariable("Secret") ?? "none";
+string myIssuer = Environment.GetEnvironmentVariable("Issuer") ?? "none";
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = myIssuer,
+        ValidAudience = "http://localhost",
+        IssuerSigningKey =
+            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(mySecret))
+    };
+});
 
 var app = builder.Build();
 
@@ -23,7 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

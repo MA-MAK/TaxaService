@@ -1,5 +1,55 @@
 	
+DOCKER IMAGES KOMMANDOER TIL SERVICES:
 
+AUTHSERVICE:
+
+docker build -t authservice_image -f Dockerfile .
+
+docker tag authservice_image mortenlundmikkelsen/authservice
+
+docker push mortenlundmikkelsen/authservice
+
+
+BOOKINGSERVICE:
+
+docker build -t bookingservice_image -f Dockerfile .
+
+docker tag bookingservice_image mortenlundmikkelsen/bookingservice
+
+docker push mortenlundmikkelsen/bookingservice
+
+
+MAINTENANCESERVICE:
+
+docker build -t maintenanceservice_image -f Dockerfile .
+
+docker tag maintenanceservice_image mortenlundmikkelsen/maintenanceservice
+
+docker push mortenlundmikkelsen/maintenanceservice
+
+
+PLANSERVICE:
+
+docker build -t planservice_image -f Dockerfile .
+
+docker tag planservice_image mortenlundmikkelsen/planservice
+
+docker push mortenlundmikkelsen/planservice
+
+
+VEHICLESERVICE:
+
+docker build -t vehicleservice_image -f Dockerfile .
+
+docker tag vehicleservice_image mortenlundmikkelsen/vehicleservice
+
+docker push mortenlundmikkelsen/vehicleservice
+
+
+
+
+
+******** OLD - NO LONGER IN USE ********
 
 ************************** How to Containerize services **************************
 
@@ -73,6 +123,8 @@ Opretter nyt tag (kopi) m. Kontonavn er version
 - docker tag service_a_image mortenlundmikkelsen/service_a
 
 docker tag planservice_image mortenlundmikkelsen/planservice
+
+docker tag authservice_image mortenlundmikkelsen/authservice
 
 
 Logger ind

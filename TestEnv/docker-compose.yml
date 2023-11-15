@@ -22,6 +22,8 @@ services:
       - connectionString=mongodb://admin:1234@mongodb-dev:27017
       - databaseName=TaxaDB
       - collectionName=users
+      - Issuer=authservice
+      - Secret=lticrhn5vd1ejf2l4e7x
    
     ports:
     - 5001:80
@@ -61,22 +63,36 @@ services:
       - TaxaNet
 
 
-  MaintenanceService:
-    image: mortenlundmikkelsen/maintenanceService:latest
+  # MaintenanceService:
+  #  image: mortenlundmikkelsen/maintenanceservice:latest
+   # environment:
+   #   - rabbitmqHost=dev-rabbit
+   #   - connectionString=mongodb://admin:1234@mongodb-dev:27017
+   #   - databaseName=TaxaDB
+   #   - collectionName=maintenanceVisits
+   
+   # ports:
+   # - 5003:80
+   # volumes:
+   # - mongodb_data_container:/data/db
+
+   # networks:
+   # - TaxaNet
+
+
+  AuthService:
+    image: mortenlundmikkelsen/authservice:latest
+    container_name: authservice
+
     environment:
-      - rabbitmqHost=dev-rabbit
-      - connectionString=mongodb://admin:1234@mongodb-dev:27017
-      - databaseName=TaxaDB
-      - collectionName=maintenanceVisits
+      - Issuer=authservice
+      - Secret=lticrhn5vd1ejf2l4e7x
    
     ports:
-    - 5003:80
-    volumes:
-    - mongodb_data_container:/data/db
-
+    - 5004:80
+    
     networks:
     - TaxaNet
-
 
   rabbitmq:
     image: "rabbitmq:3-management"

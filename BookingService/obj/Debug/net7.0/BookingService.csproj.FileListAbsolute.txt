@@ -79,3 +79,10 @@ C:/git/sem4/IT ark & infr/mod3/TaxaBooking/BookingService/obj/Debug/net7.0/ref/B
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/runtimes/linux/native/libmongocrypt.so
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/runtimes/osx/native/libmongocrypt.dylib
 /Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/runtimes/win/native/mongocrypt.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/mortenlund/Desktop/VS Code/4.Semester/Repository/TaxaService/BookingService/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll

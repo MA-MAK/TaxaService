@@ -6,6 +6,10 @@ using RabbitMQ.Client;
 using BookingService;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 namespace BookingService.Controllers;
 
@@ -26,7 +30,7 @@ public class BookingController : ControllerBase
         _userRepo = userrepo;
     }
 
-
+    [Authorize]
     [HttpGet("GetExample")]
     public IActionResult GetExample()
     {
@@ -35,7 +39,7 @@ public class BookingController : ControllerBase
         string exAsJson = JsonSerializer.Serialize(ex);
         return Ok(exAsJson);
     }
-
+    [Authorize]
     [HttpGet("GetPlan")]
     public IActionResult GetPlan()
     {
@@ -50,7 +54,7 @@ public class BookingController : ControllerBase
             return StatusCode(500, $"error: {_planPath}");
         }
     }
-
+    [Authorize]
     [HttpPost("PostBooking")]
     public ActionResult<Plan> PostBooking(Plan plan)
     {
